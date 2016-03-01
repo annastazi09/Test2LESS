@@ -1,0 +1,190 @@
+﻿@bgColor1: rgba(31,49,79,1);
+@bgColor2:rgba(81,134,165,1);
+@bgColor3:#333333;
+@bgColor4:#87ceeb;
+@bgGradient1:linear-gradient(to bottom, rgba(81,134,165,1) 0%,rgba(81,134,165,1),rgba(31,49,79,1) 100%);
+@bgGradient2: linear-gradient(to bottom, #fcfff4, #e9e9ce);
+@color1:#CAC7F9;
+@color2:white;
+@color3:gray;
+@shadowColor:rgba(0,0,0,0.3);
+@shadowParams:0 0 5px;
+@borderParams:1px solid;
+@fontSize: 12px;
+@fontFamily:Helvetica, sans-serif; 
+
+.boxShadow() {
+    box-shadow: @shadowParams @shadowColor;
+}
+
+.buttonBorder() {
+    border: @borderParams @bgColor4;
+}
+
+.buttonsParams() {
+    float: right;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.linkSettings() {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.lineSettings() {
+    border: none;
+    background-color: @bgColor3;
+    color: @color3;
+    height: 0.5px;
+}
+
+.userPhotoParams() {
+    margin-left: 32%;
+    margin-top: 20px;
+    border-radius: 100%;
+    border: 5px solid @bgColor1;
+    -webkit-box-shadow: 0 0 15px @bgColor3;
+    box-shadow: 0 0 10px @bgColor3;
+    width: 34%;
+    height: 15%;
+}
+
+  .checkboxImageSettings() {
+            background-image: url('../img/checkbox.png');
+            height: 30px;
+            width: 32px;
+            cursor: pointer;
+            -webkit-appearance: none;
+        }
+
+  .sidebarSettings() {
+    float: left;
+    width: 20%;
+    padding: 5px;
+    border-right-color: @bgColor3;
+    border-right-style: solid;
+    border-right-width: 1px;
+    height: 610px;
+}
+
+  .contentSettings() {
+    margin-left: 20.75%;
+    padding: 10px;
+    padding-left: 20px;
+    height: 600px;
+}
+
+        body {
+        font: @fontSize + 2px TimesNewRoman, @fontFamily; 
+        color:@color2;
+        min-width: 320px;
+        max-width:1300px;
+        margin:0 auto;
+        background: @bgColor1;         
+        }
+
+        #sidebar { 
+           .sidebarSettings();
+
+            h2{
+                text-align: center;
+                font-size:100%
+            }
+        }
+
+        #content { 
+            .contentSettings();
+        }
+
+        #sidebar,#content
+        {
+          background: @bgGradient1; 
+        }
+
+        div a{
+        color:@color1;
+            &:link{
+                .linkSettings();
+
+            }
+            &:visited{
+                .linkSettings();
+            }
+
+            &:hover{
+            color:@color2;
+            background-color:@bgColor3;  
+            }
+        }
+
+        hr {
+            .lineSettings();
+        }
+ 
+        p,a{
+              font: @fontSize Arial, @fontFamily; 
+              color:@color1;
+        }
+
+        #account,
+        #profile,
+        #settings,
+        #logout,
+        #cancel,
+        #saved,
+        #save {
+            display:none;
+        }
+
+        .round {
+          .userPhotoParams();
+        }
+        input{
+          float:right;
+        }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="checkbox"] {
+           .checkboxImageSettings();
+                &:checked{
+                    background-position: 0 -30px;
+                }
+        }     
+    }
+
+    .buttons {
+    .buttonsParams();
+    }
+
+    #cancel:hover {
+       .buttonBorder();               
+        background: @bgColor2;
+        color:@bgColor4;
+    }
+
+    #save{
+            background: @bgColor4;
+            .boxShadow();
+            color:@color2;
+
+            &:hover{
+                 .buttonBorder();  
+                 .boxShadow();
+                 background: @bgGradient2;
+                 color:@bgColor4;
+            }
+    }
+
+    #saved{
+        border: @borderParams @color1;
+        background: @bgColor2;
+        .boxShadow();     
+    }
+     
+    #cancel, #saved{
+        color:@color1;
+    }
+
